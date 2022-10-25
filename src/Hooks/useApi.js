@@ -1,6 +1,9 @@
-import React from "react";
+
+
+const axios = require('axios').default;
+
 
 export default function useApi(){
-    return "test"
-    
+    return axios;
+
 }
