@@ -31,7 +31,7 @@ const Header = (props) => {
         <a href="#/" className="d-flex align-items-center text-dark text-decoration-none">
           <span className="fs-4">API Tutorial</span>
         </a>
-      <div className="d-flex align-items-center" style={{borderRadius:"10px",color:"white", marginLeft:"115px", marginBottom:"-55px", backgroundColor:"#5DA7DB"}}>
+      <div className="d-flex align-items-center" style={{borderRadius:"7px",color:"white", marginLeft:"115px", marginBottom:"-55px", backgroundColor:"#5DA7DB"}}>
      <p style={{paddingRight:"10px",color:"blue",marginBottom:"0px"}}>Token: </p> {props.authState.token}
       </div>
        
@@ -41,7 +41,7 @@ const Header = (props) => {
             <strong className=" me-3 py-2">
               {props.appDataState.appData.user.fullname}
             </strong>
-            <button className="btn btn-primary py-2"
+            <button className="btn btn-outline-primary py-2"
                     onClick={onLogoutBtnClick}>
               Logout
             </button>
@@ -51,7 +51,7 @@ const Header = (props) => {
             <a className="btn btn-primary me-3 py-2" href="#/login">
               Login
             </a>
-            <a className="btn btn-primary py-2" href="#/register">
+            <a className="btn btn-outline-primary py-2" href="#/register">
               Register
             </a>
           </nav>

@@ -52,6 +52,7 @@ const Main = () => {
               <button type="button" className="w-100 btn btn-lg btn-primary">Contact us</button>
             </div>
           </div>
+         
         </div>
       </div>
 

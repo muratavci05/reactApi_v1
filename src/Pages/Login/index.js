@@ -50,7 +50,7 @@ const Login = (props) => {
 
       <div className="col-12 align-self-center">
         <div className="col-12">
-          <label htmlFor="email" className="form-label" style={{fontSize: '20px', fontWeight: 'bold'}}>
+          <label htmlFor="email" className="form-label" style={{marginRight:"235px",color:"blue"}}>
             E-mail
           </label>
           <input type="email" className="form-control" placeholder="you@example.com"
@@ -58,7 +58,7 @@ const Login = (props) => {
         </div>
 
         <div className="col-12">
-          <label className="form-label">
+          <label className="form-label" style={{ marginRight:"220px",color:"Blue", marginTop:"5px"}}>
             Password
           </label>
           <input type="password" className="form-control" placeholder="Password"
@@ -68,6 +68,7 @@ const Login = (props) => {
         <div className="col-12">
           <div className="d-grid gap-2">
             <button className="btn btn-primary" type="button"
+                    style={{ marginTop:"10px"}}
                     onClick={onLoginBtnClick}>
               Login
             </button>
