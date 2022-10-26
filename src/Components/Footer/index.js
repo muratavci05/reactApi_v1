@@ -5,10 +5,10 @@ const Footer = () => {
     <div className="row">
       <div className="col-12 col-md">
         <img className="mb-2" src={BootstrapLogo} alt="" width="24" height="19" />
-        <small className="d-block mb-3 text-muted">© 2017–2021</small>
+        <small className="d-block mb-3 text-muted">© 2017–2022</small>
       </div>
       <div className="col-6 col-md">
-        <h5>Features</h5>
+        <h5 style={{color:"#5837D0"}}>Features</h5>
         <ul className="list-unstyled text-small">
           <li className="mb-1"><a className="link-secondary text-decoration-none" href="#">Cool stuff</a></li>
           <li className="mb-1"><a className="link-secondary text-decoration-none" href="#">Random feature</a></li>
@@ -19,7 +19,7 @@ const Footer = () => {
         </ul>
       </div>
       <div className="col-6 col-md">
-        <h5>Resources</h5>
+        <h5 style={{color:"#5837D0"}}>Resources</h5>
         <ul className="list-unstyled text-small">
           <li className="mb-1"><a className="link-secondary text-decoration-none" href="#">Resource</a></li>
           <li className="mb-1"><a className="link-secondary text-decoration-none" href="#">Resource name</a></li>
@@ -28,7 +28,7 @@ const Footer = () => {
         </ul>
       </div>
       <div className="col-6 col-md">
-        <h5>About</h5>
+        <h5 style={{color:"#5837D0"}}>About</h5>
         <ul className="list-unstyled text-small">
           <li className="mb-1"><a className="link-secondary text-decoration-none" href="#">Team</a></li>
           <li className="mb-1"><a className="link-secondary text-decoration-none" href="#">Locations</a></li>
