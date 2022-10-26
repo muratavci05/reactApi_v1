@@ -16,7 +16,7 @@ const Login = () => {
        }
        console.log(">>> post Data",postData);
        api
-        .post("https://api.adoptez1artisan.com/auth/login", postData)
+        .post("auth/login", postData)
             .then((res)=>{
                 console.log("api >>>", res);
                 console.log("token >>>", res.data.data.token);
@@ -24,6 +24,10 @@ const Login = () => {
 
                 
                 localStorage.setItem(">>> token >>>", res.data.data.token);
+                window.location.href = "/#"
+                setTimeout(()=>{
+                    window.location.reload()
+                }, 111);
                 }else {
                     alert("Hatalı eposta veya şifre girildi!");
                 }
