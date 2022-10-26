@@ -1,17 +1,12 @@
 import React, { useState } from "react";
 import useApi from "../../Hooks/useApi";
 
-
-
-
-
-
 const Login = () => {
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     
-    const api = useApi();
+   const api = useApi();
 
     const onLoginBtnClic = () => {
        // alert(`${email} and ${password}`);
@@ -24,10 +19,21 @@ const Login = () => {
         .post("https://api.adoptez1artisan.com/auth/login", postData)
             .then((res)=>{
                 console.log("api >>>", res);
+                console.log("token >>>", res.data.data.token);
+                if (res.data.status === "success") {
+
+                
+                localStorage.setItem(">>> token >>>", res.data.data.token);
+                }else {
+                    alert("Hatalı eposta veya şifre girildi!");
+                }
             })
             .catch((err)=>{
                 console.log ("api >>>", err);
-            })
+                alert(err.res.data)
+            });
+
+        
     }
 
     return(

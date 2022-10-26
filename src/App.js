@@ -1,10 +1,9 @@
 import React from "react";
 import {
-  BrowserRouter,
+  HashRouter,
   Routes,
   Route,
-  HashRouter,
- 
+  
 } from "react-router-dom";
 
 import Home from "./Pages/Home";
