@@ -1,74 +1,92 @@
-import React, { useState } from "react";
-import useApi from "../../Hooks/useApi";
+import {useState} from 'react'
+import useApi from '../../hooks/useApi'
+import {connect, useDispatch} from 'react-redux'
+import {SET_TOKEN} from '../../store/reducers/authReducer'
 
-const Login = () => {
+const Login = (props) => {
+  console.log('>> LOGIN PAGE PROPS', props)
 
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    
-   const api = useApi();
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+  const api = useApi()
 
-    const onLoginBtnClic = () => {
-       // alert(`${email} and ${password}`);
-
-       const postData = {
-        email,password,
-       }
-       console.log(">>> post Data",postData);
-       api
-        .post("auth/login", postData)
-            .then((res)=>{
-                console.log("api >>>", res);
-                console.log("token >>>", res.data.data.token);
-                if (res.data.status === "success") {
-
-                
-                localStorage.setItem(">>> token >>>", res.data.data.token);
-                window.location.href = "/#"
-                setTimeout(()=>{
-                    window.location.reload()
-                }, 111);
-                }else {
-                    alert("Hatalı eposta veya şifre girildi!");
-                }
-            })
-            .catch((err)=>{
-                console.log ("api >>>", err);
-                alert(err.res.data)
-            });
-
-        
+  const onLoginBtnClick = () => {
+    const postData = {
+      email, password,
     }
+    console.log('>> POST DATA', postData)
 
-    return(
-        <main className="container py-3">
-        <div className="row row-cols-1 row-cols-md-3 mb-3 text-center">
-        <div className="col align-self-center">
-            <div className="col-12">
-              <label className="form-label " style={{color:"blue"}} >Email</label>
-              <input type="email" className="form-control" placeholder="you@example.com"
-              value={email}
-              onChange={(event) =>setEmail(event.target.value)}
-              />
-             
-            </div>
+    api.post('auth/login', postData)
+      .then((response) => {
+        console.log('>> RES', response)
+        console.log('>> TOKEN', response.data.data.token)
 
-            <div className="col-12">
-            <label className="form-label" style={{color:"blue", paddingTop:"15px"}} >Password </label>
-            <input type="password" className="form-control" placeholder="password"
-            value={password}
-            onChange={(event) =>setPassword(event.target.value)}
-            ></input>
-            </div>
-            <div className="d-grid gap-2">
-                <button className="btn btn-primary" style={{marginTop:"5px"}} type="button"
-                onClick={onLoginBtnClic}
-                >Button </button>
-            </div>
+        if (response.data.status === 'success') {
+          localStorage.setItem('token', response.data.data.token)
+
+          const action = {
+            type: SET_TOKEN,
+            payload: {
+              token: response.data.data.token,
+            },
+          }
+          props.dispatch(action)
+
+          window.location.href = '/#'
+        } else {
+          alert('Hatalı eposta veya şifre girildi.')
+        }
+
+      })
+      .catch((err) => {
+        console.log('>> ERR', err)
+        alert(err.response.data.errorMessage)
+      })
+
+  }
+
+  return (<main>
+    <div className="row row-cols-1 row-cols-md-3 mb-3 text-center">
+
+      <div className="col-12 align-self-center">
+        <div className="col-12">
+          <label htmlFor="email" className="form-label" style={{fontSize: '20px', fontWeight: 'bold'}}>
+            E-mail
+          </label>
+          <input type="email" className="form-control" placeholder="you@example.com"
+                 onChange={(e) => setEmail(e.target.value)} />
         </div>
+
+        <div className="col-12">
+          <label className="form-label">
+            Password
+          </label>
+          <input type="password" className="form-control" placeholder="Password"
+                 onChange={(e) => setPassword(e.target.value)} />
         </div>
-        </main>
-    )
+
+        <div className="col-12">
+          <div className="d-grid gap-2">
+            <button className="btn btn-primary" type="button"
+                    onClick={onLoginBtnClick}>
+              Login
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </main>)
 }
 
-export default Login;
+const mapStateToProps = (state) => {
+  console.log('>> LOGIN MAP STATE', state)
+
+  return {
+    ...state,
+  }
+}
+
+export default connect(mapStateToProps)(Login)
