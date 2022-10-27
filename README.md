@@ -1,4 +1,5 @@
 # Getting Started with Create React App
+*How to connect to a backend api with a rect project - Rect projesi ile bir backend api'ye nasıl bağlanılır
 
 ![](https://github.com/muratavci05/reactApi_v1/blob/5637866c837e10de078a473ef5fbd0bd63a94b9f/src/Components/assents/gif/reactApi.gif)
 
