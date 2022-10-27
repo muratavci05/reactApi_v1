@@ -1,5 +1,7 @@
 # Getting Started with Create React App
 
+![](https://github.com/muratavci05/reactApi_v1/blob/5637866c837e10de078a473ef5fbd0bd63a94b9f/src/Components/assents/gif/reactApi.gif)
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
